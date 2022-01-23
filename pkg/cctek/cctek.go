@@ -14,6 +14,7 @@ type Country struct {
 	Name    string `yaml:"name"`
 }
 
+// String returns the string representation of a Country.
 func (c Country) String() string {
 	return "Country: " + c.Name + "\tAlpha2: " + c.AlphaV2 + "\t" + "Alpha3: " + c.AlphaV3 + "\n"
 }
@@ -51,6 +52,7 @@ func (card Card) String() string {
 	return ret
 }
 
+// sum adds digits in array
 func sum(digits []int64) int64 {
 	var s int64 = 0
 	for i := 0; i < len(digits); i++ {
@@ -59,6 +61,7 @@ func sum(digits []int64) int64 {
 	return s
 }
 
+// LuhnCheck checks a credit card Number for validity with Luhn's Algorithm
 func LuhnCheck(cardNumber string) bool {
 	// odd digits
 	fmt.Println("Card Number: ", cardNumber)
