@@ -14,6 +14,10 @@ type Country struct {
 	Name    string `yaml:"name"`
 }
 
+func (c Country) String() string {
+	return "Country: " + c.Name + "\tAlpha2: " + c.AlphaV2 + "\t" + "Alpha3: " + c.AlphaV3 + "\n"
+}
+
 // Card structure
 type Card struct {
 	Bin      string  `yaml:"bin"`
@@ -43,7 +47,7 @@ func (c CardRecords) Get(key string) Card {
 
 // String returns the string representation of a Card.
 func (card Card) String() string {
-	ret := "BIN: " + card.Bin + "\nBRAND: " + card.Brand + "\nCategory: " + card.Category + "\nIssuer: " + card.Issuer + "\nType: " + card.Type + "\nCountry: " + card.Country.Name + "\n"
+	ret := "BIN: " + card.Bin + "\nBRAND: " + card.Brand + "\nCategory: " + card.Category + "\nIssuer: " + card.Issuer + "\nType: " + card.Type + "\n" + card.Country.String() + "\n"
 	return ret
 }
 
