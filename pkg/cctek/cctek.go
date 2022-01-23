@@ -59,7 +59,7 @@ func sum(digits []int64) int64 {
 	return s
 }
 
-func CheckLuhn(cardNumber string) bool {
+func LuhnCheck(cardNumber string) bool {
 	// odd digits
 	fmt.Println("Card Number: ", cardNumber)
 	var odds []int64 = make([]int64, 0)

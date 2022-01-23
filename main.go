@@ -41,5 +41,5 @@ func main() {
 		fmt.Println("Number of CMD line args: ", argsLen)
 	}
 
-	fmt.Println("Check card: ", card, " isValid: ", cctek.CheckLuhn(card))
+	fmt.Println("Check card: ", card, " isValid: ", cctek.LuhnCheck(card))
 }
