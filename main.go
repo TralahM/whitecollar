@@ -29,14 +29,15 @@ func main() {
 		fmt.Println("Length of records: ", len(cardrecords))
 		fmt.Println("Number of CMD line args: ", argsLen)
 	} else {
-		data, err := ioutil.ReadFile("data/4/4300.yml")
+		data, err := ioutil.ReadFile("data/4/4407.yml")
 		if err != nil {
 			log.Fatalln(err)
 		}
 		if err := cardrecords.Parse(data); err != nil {
 			log.Fatalln(err)
 		}
-		fmt.Printf("%+v\n", cardrecords)
+		// fmt.Printf("%+v\n", cardrecords)
+		fmt.Printf("%s\n", cardrecords.Get("440783").String())
 		fmt.Println("Length of records: ", len(cardrecords))
 		fmt.Println("Number of CMD line args: ", argsLen)
 	}

@@ -1,7 +1,6 @@
 package cctek
 
 import (
-	"fmt"
 	"strconv"
 
 	"gopkg.in/yaml.v2"
@@ -64,7 +63,7 @@ func sum(digits []int64) int64 {
 // LuhnCheck checks a credit card Number for validity with Luhn's Algorithm
 func LuhnCheck(cardNumber string) bool {
 	// odd digits
-	fmt.Println("Card Number: ", cardNumber)
+	// fmt.Println("Card Number: ", cardNumber)
 	var odds []int64 = make([]int64, 0)
 	var dbl_odds []int64 = make([]int64, 0)
 	var dbl_odds_less_nine []int64 = make([]int64, 0)
@@ -81,14 +80,14 @@ func LuhnCheck(cardNumber string) bool {
 		i++
 	}
 
-	fmt.Println("odds: ", odds, " length: ", len(odds))
-	fmt.Println("evens: ", evens)
+	// fmt.Println("odds: ", odds, " length: ", len(odds))
+	// fmt.Println("evens: ", evens)
 
 	for i := 0; i < len(odds); i++ {
 		dbl_odds = append(dbl_odds, odds[i]*2)
 	}
 
-	fmt.Println("dbl_odds: ", dbl_odds)
+	// fmt.Println("dbl_odds: ", dbl_odds)
 
 	for i := 0; i < len(dbl_odds); i++ {
 		if dbl_odds[i] < 10 {
@@ -98,13 +97,13 @@ func LuhnCheck(cardNumber string) bool {
 		}
 	}
 
-	fmt.Println("dbl_odds_less_nine: ", dbl_odds_less_nine)
+	// fmt.Println("dbl_odds_less_nine: ", dbl_odds_less_nine)
 
 	// Checksum
 	checksum := 10 - ((sum(evens) + sum(dbl_odds_less_nine)) % 10)
-	fmt.Println("sum evens: ", sum(evens))
-	fmt.Println("sum odds: ", sum(dbl_odds_less_nine))
-	fmt.Println("Calculated checksum: ", checksum)
+	// fmt.Println("sum evens: ", sum(evens))
+	// fmt.Println("sum odds: ", sum(dbl_odds_less_nine))
+	// fmt.Println("Calculated checksum: ", checksum)
 	if strconv.FormatInt(checksum, 10) == string(cardNumber[(len(cardNumber)-1)]) {
 		return true
 	}
