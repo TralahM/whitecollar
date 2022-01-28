@@ -2,6 +2,7 @@ package cctek
 
 import (
 	"strconv"
+	"strings"
 
 	"gopkg.in/yaml.v2"
 )
@@ -49,6 +50,11 @@ func (c CardRecords) Get(key string) Card {
 func (card Card) String() string {
 	ret := "BIN: " + card.Bin + "\nBRAND: " + card.Brand + "\nCategory: " + card.Category + "\nIssuer: " + card.Issuer + "\nType: " + card.Type + "\n" + card.Country.String() + "\n"
 	return ret
+}
+
+// SwiftFilename returns the filename and extension of the swift data.
+func (card Card) SwiftFilename() string {
+	return strings.ToLower(card.Country.AlphaV2) + ".yml"
 }
 
 // sum adds digits in array
